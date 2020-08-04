@@ -22,7 +22,7 @@ public class TennisGame2 {
         if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
             return "Win for " + player2Name;
         }
-        
+
         // Advantage
         if (player1Point > player2Point && player2Point >= 3) {
             return "Advantage " + player1Name;
