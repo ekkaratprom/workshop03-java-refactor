@@ -42,7 +42,7 @@ public class TennisGame2 {
         }
 
         //normal case
-        return formatResult(setScore(player1Point), setScore(player2Point));
+        return scoreResult(setScore(player1Point), setScore(player2Point));
     }
 
     public String setScore(int playerPoint) {
@@ -63,7 +63,7 @@ public class TennisGame2 {
 
     }
 
-    public String formatResult(String s1, String s2) {
+    public String scoreResult(String s1, String s2) {
         return s1 + "-" + s2;
     }
 
