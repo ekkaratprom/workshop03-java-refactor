@@ -111,6 +111,19 @@ public class TennisGame2 {
         return score;
     }
 
+    public String onlyPlayerHavePointScore(int playerPoint){
+        if (player1Point == 1)
+            playerResult = "Fifteen";
+        if (player1Point == 2)
+            playerResult  = "Thirty";
+        if (player1Point == 3)
+            playerResult  = "Forty";
+
+        player2Result = "Love"; // resultFormat Duplicate
+        score = player1Result + "-" + player2Result;
+    }
+
+
 
     public void wonPoint(String player) {
         //if (player.equals("player1")) // 1 => NullPointerException (NPE)
