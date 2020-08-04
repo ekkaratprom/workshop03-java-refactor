@@ -16,39 +16,22 @@ public class TennisGame2 {
         String player2Result = "";
         String score = "";
         if (player1Point == player2Point && player1Point < 4) { //equalScore
-//            if (player1Point == 0)
-//                score = "Love";
-//            if (player1Point == 1)
-//                score = "Fifteen";
-//            if (player1Point == 2)
-//                score = "Thirty";
-//            score += "-All";
             score = equalScore(player1Point);
         }
         if (player1Point == player2Point && player1Point >= 3) //equalScore && point >= 3
             score = "Deuce";
 
         if (player1Point > 0 && player2Point == 0) { //onlyPlayer1HavePointScore
-            if (player1Point == 1)
-                player1Result = "Fifteen";
-            if (player1Point == 2)
-                player1Result = "Thirty";
-            if (player1Point == 3)
-                player1Result = "Forty";
+            player1Result = onlyPlayerHavePointScore(player1Point);
+            player2Result = "Love";
 
-            player2Result = "Love"; // resultFormat Duplicate
-            score = player1Result + "-" + player2Result;
+            formatResult(player1Result,player2Result);
         }
         if (player2Point > 0 && player1Point == 0) { //onlyPlayer2HavePointScore
-            if (player2Point == 1)
-                player2Result = "Fifteen";
-            if (player2Point == 2)
-                player2Result = "Thirty";
-            if (player2Point == 3)
-                player2Result = "Forty";
+            player2Result = onlyPlayerHavePointScore(player2Point);
+            player1Result = "Love";
 
-            player1Result = "Love"; //  resultFormat Duplicate
-            score = player1Result + "-" + player2Result;
+            formatResult(player1Result,player2Result);
         }
 
         if (player1Point > player2Point && player1Point < 4) { // player1Score
@@ -112,15 +95,20 @@ public class TennisGame2 {
     }
 
     public String onlyPlayerHavePointScore(int playerPoint){
-        if (player1Point == 1)
-            playerResult = "Fifteen";
-        if (player1Point == 2)
-            playerResult  = "Thirty";
-        if (player1Point == 3)
-            playerResult  = "Forty";
+        String playerResult = "";
+        if (playerPoint == 1){
+            playerResult = "Fifteen";}
+        if (playerPoint == 2){
+            playerResult  = "Thirty";}
+        if (playerPoint == 3){
+            playerResult  = "Forty";}
 
-        player2Result = "Love"; // resultFormat Duplicate
-        score = player1Result + "-" + player2Result;
+        return playerResult ; // resultFormat Duplicate
+
+    }
+
+    public String formatResult(String player1Result,String player2Result){
+        return player1Result + "-" + player2Result;
     }
 
 
