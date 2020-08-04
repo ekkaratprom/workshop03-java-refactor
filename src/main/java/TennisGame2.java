@@ -16,13 +16,14 @@ public class TennisGame2 {
         String player2Result = "";
         String score = "";
         if (player1Point == player2Point && player1Point < 4) { //equalScore
-            if (player1Point == 0)
-                score = "Love";
-            if (player1Point == 1)
-                score = "Fifteen";
-            if (player1Point == 2)
-                score = "Thirty";
-            score += "-All";
+//            if (player1Point == 0)
+//                score = "Love";
+//            if (player1Point == 1)
+//                score = "Fifteen";
+//            if (player1Point == 2)
+//                score = "Thirty";
+//            score += "-All";
+            score = equalScore(player1Point);
         }
         if (player1Point == player2Point && player1Point >= 3) //equalScore && point >= 3
             score = "Deuce";
@@ -97,6 +98,19 @@ public class TennisGame2 {
     public void player2Score() { // Duplicate method --> receivePoint()
         player2Point++;
     }
+
+    public String equalScore(int playerPoint){
+        String score = "";
+        if (playerPoint == 0)
+            score = "Love";
+        if (playerPoint == 1)
+            score = "Fifteen";
+        if (playerPoint == 2)
+            score = "Thirty";
+        score += "-All";
+        return score;
+    }
+
 
     public void wonPoint(String player) {
         //if (player.equals("player1")) // 1 => NullPointerException (NPE)
