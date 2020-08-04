@@ -112,7 +112,6 @@ public class TennisGame2 {
     }
 
 
-
     public void wonPoint(String player) {
         //if (player.equals("player1")) // 1 => NullPointerException (NPE)
         if ("player1".equals(player)) { // 2 => Null safety
