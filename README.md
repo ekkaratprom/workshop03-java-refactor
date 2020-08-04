@@ -31,10 +31,6 @@
     * have a code fragment that can be grouped together move this code to a separate new method (or function) 
         and replace the old code with a call to the method
     * make method has a descriptive name
-  * Duplicate result score format : -> setFormatScore()
-  * Duplicate players receive point : -> receivePoint()
-  * Duplicate result score end Game : -> endGame()
-  * Duplicate result score player advantage Game : -> advantage()
-   
-    
+  * Duplicate result score format : -> setScore()
+  
 ###### ref : https://sourcemaking.com/refactoring/extract-method
