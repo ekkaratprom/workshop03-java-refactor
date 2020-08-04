@@ -27,8 +27,9 @@
 
 #### 4. Refactoring : TennisGame2 
   * Long Method : getScore() The longer a method  is harder to understand and maintain it.
-        * need to comment on something inside a method
-        * have a code fragment that can be grouped together move this code to a separate new method (or function) 
+    * need to comment on something inside a method
+    * have a code fragment that can be grouped together move this code to a separate new method (or function) 
         and replace the old code with a call to the method
-        * make method has a descriptive name
-    ref : https://sourcemaking.com/refactoring/extract-method
+    * make method has a descriptive name
+    
+###### ref : https://sourcemaking.com/refactoring/extract-method
