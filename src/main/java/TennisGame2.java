@@ -12,8 +12,7 @@ public class TennisGame2 {
     }
 
     public String getScore() {
-        String player1Result = "";
-        String player2Result = "";
+
 
         // equal score not deuce
         if (player1Point == player2Point && player1Point < 3) { //equalScore
@@ -26,18 +25,12 @@ public class TennisGame2 {
 
         //normal case player 1
         if (player1Point > 0 && player2Point == 0) {
-            player1Result = normalScore(player1Point);
-            player2Result = "Love";
-
-            return formatResult(player1Result,player2Result);
+            return formatResult(normalScore(player1Point),"Love");
         }
 
         // normal case player 2
         if (player2Point > 0 && player1Point == 0 ) {
-            player2Result = normalScore(player2Point);
-            player1Result = "Love";
-
-            return formatResult(player1Result,player2Result);
+            return formatResult("Love",normalScore(player2Point));
         }
 
         if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
@@ -57,7 +50,7 @@ public class TennisGame2 {
         }
 
 
-        return formatResult(player1Result,player2Result);
+        return formatResult(normalScore(player1Point),normalScore(player2Point));
     }
 
     public void player1Score() {
