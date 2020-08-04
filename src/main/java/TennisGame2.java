@@ -23,16 +23,6 @@ public class TennisGame2 {
         if (player1Point == player2Point ) //equalScore && point >= 3
             return  "Deuce";
 
-        //normal case player 1
-        if (player1Point > 0 && player2Point == 0) {
-            return formatResult(normalScore(player1Point),"Love");
-        }
-
-        // normal case player 2
-        if (player2Point > 0 && player1Point == 0 ) {
-            return formatResult("Love",normalScore(player2Point));
-        }
-
         if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
             return "Win for " + player1Name;
         }
@@ -49,7 +39,7 @@ public class TennisGame2 {
             return "Advantage " + player2Name;
         }
 
-
+        //normal case
         return formatResult(normalScore(player1Point),normalScore(player2Point));
     }
 
@@ -74,6 +64,8 @@ public class TennisGame2 {
 
     public String normalScore(int playerPoint){
         String score = "";
+        if (playerPoint == 0)
+            score = "Love";
         if (playerPoint == 1){
             score =  "Fifteen";}
         if (playerPoint == 2){
