@@ -24,3 +24,17 @@
   * TC04 => write_until_full_and_write_Z_new_data_override_by_Z
   * TC05 => write_until_full_and_write_C_new_data_should_be_C_next_to_Z
   * TC06 => create_new_buffer_by_custom_size_6
+
+#### 4. Refactoring : TennisGame2 
+  * Long Method : getScore() The longer a method  is harder to understand and maintain it.
+    * need to comment on something inside a method
+    * have a code fragment that can be grouped together move this code to a separate new method (or function) 
+        and replace the old code with a call to the method
+    * make method has a descriptive name
+  * Duplicate result score format : -> setFormatScore()
+  * Duplicate players receive point : -> receivePoint()
+  * Duplicate result score end Game : -> endGame()
+  * Duplicate result score player advantage Game : -> advantage()
+   
+    
+###### ref : https://sourcemaking.com/refactoring/extract-method

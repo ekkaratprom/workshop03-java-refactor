@@ -1,6 +1,6 @@
 public class TennisGame2 {
-    public int player1Point = 0;
-    public int player2Point = 0;
+    public int player1Point;
+    public int player2Point;
 
 
     private final String player1Name;
@@ -12,38 +12,52 @@ public class TennisGame2 {
     }
 
     public String getScore() {
-        String[] textScores = {"Love", "Fifteen", "Thirty", "Forty"};
+        String player1Result = "";
+        String player2Result = "";
 
-        //เสมอกัน
-        boolean equalScoreButNotDeuce = player1Point == player2Point && player1Point < 3;
-        if (equalScoreButNotDeuce) {
-            return textScores[player1Point] + "-All";
-            //ตัดตอน ป้องกันการที่ไปเข้า if อื่น
+        // equal score not deuce
+        if (player1Point == player2Point && player1Point < 3) { //equalScore
+            return equalScore(player1Point);
         }
 
-        //Deuce
-        boolean isDeuce = player1Point == player2Point;
-        if (isDeuce) return "Deuce";
+        // Deuce
+        if (player1Point == player2Point ) //equalScore && point >= 3
+            return  "Deuce";
 
-        //winner
+        //normal case player 1
+        if (player1Point > 0 && player2Point == 0) {
+            player1Result = normalScore(player1Point);
+            player2Result = "Love";
+
+            return formatResult(player1Result,player2Result);
+        }
+
+        // normal case player 2
+        if (player2Point > 0 && player1Point == 0 ) {
+            player2Result = normalScore(player2Point);
+            player1Result = "Love";
+
+            return formatResult(player1Result,player2Result);
+        }
+
         if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
             return "Win for " + player1Name;
         }
+
         if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
             return "Win for " + player2Name;
-
-        }
-        // Advantage
-        if (player1Point > player2Point && player2Point >= 3) {
-            return "Advantage " + player1Name;
         }
 
-        if (player2Point > player1Point && player1Point >= 3) {
+        if (player1Point > player2Point && player2Point >= 3) { //hard code
+            return  "Advantage " + player1Name;
+        }
+
+        if (player2Point > player1Point && player1Point >= 3) { //hard code
             return "Advantage " + player2Name;
         }
 
-        //Normal case
-        return textScores[player1Point] + "-" + textScores[player2Point];
+
+        return formatResult(player1Result,player2Result);
     }
 
     public void player1Score() {
@@ -53,6 +67,34 @@ public class TennisGame2 {
     public void player2Score() {
         player2Point++;
     }
+
+    public String equalScore(int playerPoint){
+        String score = "";
+        if (playerPoint == 0)
+            score = "Love";
+        if (playerPoint == 1)
+            score = "Fifteen";
+        if (playerPoint == 2)
+            score = "Thirty";
+        return score + "-All";
+    }
+
+    public String normalScore(int playerPoint){
+        String score = "";
+        if (playerPoint == 1){
+            score =  "Fifteen";}
+        if (playerPoint == 2){
+            score = "Thirty";}
+        if (playerPoint == 3){
+            score = "Forty";}
+        return score;
+
+    }
+
+    public String formatResult(String s1,String s2){
+        return s1 + "-" + s2;
+    }
+
 
     public void wonPoint(String player) {
         //if (player.equals("player1")) // 1 => NullPointerException (NPE)
