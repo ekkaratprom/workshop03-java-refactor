@@ -14,6 +14,15 @@ public class TennisGame2 {
     public String getScore() {
         String[] textScores = {"Love", "Fifteen", "Thirty", "Forty"};
 
+        //Winner
+        if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
+            return "Win for " + player1Name;
+        }
+
+        if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
+            return "Win for " + player2Name;
+        }
+        
         // Advantage
         if (player1Point > player2Point && player2Point >= 3) {
             return "Advantage " + player1Name;
@@ -23,14 +32,7 @@ public class TennisGame2 {
             return "Advantage " + player2Name;
         }
 
-        //Winner
-        if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
-            return "Win for " + player1Name;
-        }
 
-        if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
-            return "Win for " + player2Name;
-        }
 
         // Deuce
         boolean isDeuce = player1Point == player2Point && player1Point >= 3;
